@@ -80,7 +80,7 @@ public:
 			this->find_max();
 		}
 		else
-			cout << "¾ø´Â ¸í·É¾îÀÔ´Ï´Ù." << std::endl;
+			cout << "Â¾Ã¸Â´Ã‚ Â¸Ã­Â·Ã‰Â¾Ã®Ã€Ã”Â´ÃÂ´Ã™." << std::endl;
 	}
 };
 
