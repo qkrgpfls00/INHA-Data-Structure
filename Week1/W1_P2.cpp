@@ -22,7 +22,7 @@ public:
 	}
 	void shift(int n) {
 		for (int j = n; j > 0; j--) {
-			int lastNum = arr[arrSize - 1]; //¸¶Áö¸· number
+			int lastNum = arr[arrSize - 1]; //ë§ˆì§€ë§‰ number
 			for (int i = arrSize - 1; i >= 0; i--) {
 				arr[i] = arr[i - 1];
 			}
@@ -37,8 +37,8 @@ public:
 	}
 };
 int main() {
-	int count = 0; //test ¼ö
-	int a = 0; //ÀÔ·Â¹ŞÀ» ¿ø¼Ò
+	int count = 0; //test ìˆ˜
+	int a = 0; //ì…ë ¥ë°›ì„ ì›ì†Œ
 	cin >> count;
 
 	for (int i = 0; i < count; i++) {
@@ -54,9 +54,9 @@ int main() {
 		for (int j = 0; j < size; j++) {
 			cin >> a;
 			arr.add(j, a);
-		} //¹è¿­¿¡ ¿ø¼Ò ´ëÀÔ
+		} //ë°°ì—´ì— ì›ì†Œ ëŒ€ì…
 
-		arr.shift(shiftCount); //¹è¿­ ÀÌµ¿
+		arr.shift(shiftCount); //ë°°ì—´ ì´ë™
 		arr.print();
 	}
 }
