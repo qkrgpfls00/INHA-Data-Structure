@@ -5,30 +5,30 @@ using namespace std;
 class arrStack {
 public:
 	int* arr;
-	int capacity; //¼ö¿ëÇÒ Å©±â
+	int capacity; //ìˆ˜ìš©í•  í¬ê¸°
 	int t; //top
 
-	arrStack(int capacity) { // »ý¼ºÀÚÇÔ¼ö
+	arrStack(int capacity) { // ìƒì„±ìží•¨ìˆ˜
 		this->capacity = capacity;
-		this->arr = new int[capacity]; //µ¿ÀûÇÒ´çÀ¸·Î
+		this->arr = new int[capacity]; //ë™ì í• ë‹¹ìœ¼ë¡œ
 		this->t = -1;
 	}
 
-	int size() { //½ºÅÃÀÇ »çÀÌÁî
+	int size() { //ìŠ¤íƒì˜ ì‚¬ì´ì¦ˆ
 		return t + 1;
 	}
 
-	bool empty() { //½ºÅÃÀÌ ºñ¾îÀÖ´ÂÁö È®ÀÎ
+	bool empty() { //ìŠ¤íƒì´ ë¹„ì–´ìžˆëŠ”ì§€ í™•ì¸
 		if (t == -1) { 
 			return 1;
-		}// t°¡ -1ÀÏ ¶§ 1¹ÝÈ¯
+		}// tê°€ -1ì¼ ë•Œ 1ë°˜í™˜
 		else {
 			return 0;
 		}
 	}
 
-	int top() { // ½ºÅÃÀÇ top¿¡ ÀúÀåµÈ ¿ø¼Ò ¹ÝÈ¯
-		if (empty()) { //½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é -1 ¹ÝÈ¯
+	int top() { // ìŠ¤íƒì˜ topì— ì €ìž¥ëœ ì›ì†Œ ë°˜í™˜
+		if (empty()) { //ìŠ¤íƒì´ ë¹„ì–´ìžˆìœ¼ë©´ -1 ë°˜í™˜
 			cout << -1<<"\n";
 			return -1; 
 		}
@@ -40,7 +40,7 @@ public:
 
 	void push(int e) {
 		if (size() == capacity) cout << "FULL\n";
-		else arr[++t] = e; //½ºÅÃÀÇ topÀ» Áõ°¡½ÃÄÑÁØ ÈÄ e¸¦ ½ºÅÃ¿¡ »ðÀÔ
+		else arr[++t] = e; //ìŠ¤íƒì˜ topì„ ì¦ê°€ì‹œì¼œì¤€ í›„ eë¥¼ ìŠ¤íƒì— ì‚½ìž…
 	}
 
 	int pop() {
@@ -49,15 +49,15 @@ public:
 			return -1;
 		}
 		else {
-			top(); //top¿¡ ÀúÀåµÈ ¿ø¼Ò Ãâ·Â ÈÄ
-			return arr[t--]; //½ºÅÃÀÇ top°¨¼Ò
+			top(); //topì— ì €ìž¥ëœ ì›ì†Œ ì¶œë ¥ í›„
+			return arr[t--]; //ìŠ¤íƒì˜ topê°ì†Œ
 		}
 	}
 };
 int main() {
-	int t=0; // ½ºÅÃÀÇ ¼ö¿ë °¡´ÉÇÑ Å©±â ¼ö
-	int N=0; // ¸í·É¾î ¼ö
-	int X = 0; //pushÇÒ ¶§ »ðÀÔÇÒ Á¤¼ö
+	int t=0; // ìŠ¤íƒì˜ ìˆ˜ìš© ê°€ëŠ¥í•œ í¬ê¸° ìˆ˜
+	int N=0; // ëª…ë ¹ì–´ ìˆ˜
+	int X = 0; //pushí•  ë•Œ ì‚½ìž…í•  ì •ìˆ˜
 	string command = "";
 	
 	cin >> t >> N;
