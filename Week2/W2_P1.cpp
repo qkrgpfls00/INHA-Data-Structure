@@ -3,8 +3,8 @@
 using namespace std;
 
 class Node { //Node class
-	int elem=0; // µ¥ÀÌÅÍ ÀúÀå º¯¼ö
-	Node* next = NULL; // ´ÙÀ½ ³ëµå ÁÖ¼Ò ÀúÀå Æ÷ÀÎÅÍ 
+	int elem=0; // ë°ì´í„° ì €ìž¥ ë³€ìˆ˜
+	Node* next = NULL; // ë‹¤ìŒ ë…¸ë“œ ì£¼ì†Œ ì €ìž¥ í¬ì¸í„° 
 
 	friend class S_LinkedList;
 };
@@ -14,14 +14,14 @@ private:
 	Node* head=NULL;
 	Node* tail=NULL;
 public:
-	S_LinkedList() { //»ý¼ºÀÚ ÇÔ¼ö
+	S_LinkedList() { //ìƒì„±ìž í•¨ìˆ˜
 		head = new Node;
 		tail = new Node;
 
 		head = NULL;
 		tail = NULL;
 	}
-	int List_size() { //¸®½ºÆ®ÀÇ Å©±â ¹ÝÈ¯ ÇÔ¼ö
+	int List_size() { //ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸° ë°˜í™˜ í•¨ìˆ˜
 		
 		int sz = 0;
 		if (this->Empty() == true) {
@@ -38,11 +38,11 @@ public:
 		}
 	
 	}
-	bool Empty() { //¸®½ºÆ®°¡ ºñ¾îÀÖ´ÂÁö È®ÀÎ ÇÔ¼ö
+	bool Empty() { //ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆëŠ”ì§€ í™•ì¸ í•¨ìˆ˜
 		return(head == NULL && tail == NULL);
 	}
-	void Print() { //¸®½ºÆ® ÀüÃ¼ Ãâ·Â ÇÔ¼ö
-		//¸®½ºÆ®°¡ ºñ¾îÀÖÀ» ¶§ emptyÃâ·Â
+	void Print() { //ë¦¬ìŠ¤íŠ¸ ì „ì²´ ì¶œë ¥ í•¨ìˆ˜
+		//ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆì„ ë•Œ emptyì¶œë ¥
 
 		if (this->Empty() == true) {
 			cout << "empty\n";
@@ -56,11 +56,11 @@ public:
 			cout << curNode->elem << '\n';
 		}
 	}
-	void Append(int elem) { //¸®½ºÆ®¿¡ node¸¦ Ãß°¡ ÇÔ¼ö
-		//¸Ç µÚ¿¡ »ðÀÔ ÈÄ PrintÇÔ¼ö ¼öÇà
+	void Append(int elem) { //ë¦¬ìŠ¤íŠ¸ì— nodeë¥¼ ì¶”ê°€ í•¨ìˆ˜
+		//ë§¨ ë’¤ì— ì‚½ìž… í›„ Printí•¨ìˆ˜ ìˆ˜í–‰
 		Node* newNode = new Node;
 		newNode->elem = elem;
-		newNode->next = NULL; //tailÀÌ µÉ NodeÀÌ±â ¶§¹®
+		newNode->next = NULL; //tailì´ ë  Nodeì´ê¸° ë•Œë¬¸
 
 		if (this->Empty() == true) {
 			this->head = newNode;
@@ -73,16 +73,16 @@ public:
 			this->Print();
 		}
 	}
-	int Delete(int idx) { //ÇØ´ç idx¸¦ »èÁ¦ ÇÔ¼ö
-		//»èÁ¦ÇÏ¸é¼­ ¹ÝÈ¯, ¹ÝÈ¯µÈ °ª Ãâ·Â
-		//¸®½ºÆ®°¡ ºñ¾îÀÖ°Å³ª index°ªÀÌ »çÀÌÁî¿Í °°°Å³ª Å©¸é -1À» ¹ÝÈ¯, Ãâ·Â
+	int Delete(int idx) { //í•´ë‹¹ idxë¥¼ ì‚­ì œ í•¨ìˆ˜
+		//ì‚­ì œí•˜ë©´ì„œ ë°˜í™˜, ë°˜í™˜ëœ ê°’ ì¶œë ¥
+		//ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆê±°ë‚˜ indexê°’ì´ ì‚¬ì´ì¦ˆì™€ ê°™ê±°ë‚˜ í¬ë©´ -1ì„ ë°˜í™˜, ì¶œë ¥
 		
 		int deleteNum = 0;
 
 		if (this->Empty() == true || List_size() <= idx) {
 			deleteNum = -1;
 		}
-		else if (idx == 0) { //head¸¦ »èÁ¦ÇÏ´Â °æ¿ì
+		else if (idx == 0) { //headë¥¼ ì‚­ì œí•˜ëŠ” ê²½ìš°
 			if (List_size() == 1) {
 				deleteNum = head->elem;
 				this->head = NULL;
@@ -113,9 +113,9 @@ public:
 		return deleteNum;
 		
 	}
-	void Insert(int idx, int elem) { //¸®½ºÆ® index¿¡ elemÀ» °®´Â ³ëµå Ãß°¡ ÇÔ¼ö
-		//»ðÀÔ ÈÄ PrintÇÔ¼ö ¼öÇÛ
-		//index°¡ ¸®½ºÆ® »çÀÌÁîº¸´Ù Å©¸é Index Error Ãâ·Â
+	void Insert(int idx, int elem) { //ë¦¬ìŠ¤íŠ¸ indexì— elemì„ ê°–ëŠ” ë…¸ë“œ ì¶”ê°€ í•¨ìˆ˜
+		//ì‚½ìž… í›„ Printí•¨ìˆ˜ ìˆ˜í•¼
+		//indexê°€ ë¦¬ìŠ¤íŠ¸ ì‚¬ì´ì¦ˆë³´ë‹¤ í¬ë©´ Index Error ì¶œë ¥
 
 		Node* newNode = new Node;
 		newNode->elem = elem;
@@ -124,7 +124,7 @@ public:
 		if (idx <0 || idx >List_size()) {
 			cout << "Index Error"<<endl;
 		}
-		else if (idx == 0) { //head¿¡ »ðÀÔÇÏ´Â °æ¿ì
+		else if (idx == 0) { //headì— ì‚½ìž…í•˜ëŠ” ê²½ìš°
 			if (Empty() == true) {
 				this->head = newNode;
 				this->tail = newNode;
@@ -155,7 +155,7 @@ public:
 			this->Print();
 		}
 	}
-	void Sum() { //¸®½ºÆ® ÀüÃ¼ ³ëµåÀÇ elem°ªÀÇ ÇÕ Ãâ·Â ÇÔ¼ö
+	void Sum() { //ë¦¬ìŠ¤íŠ¸ ì „ì²´ ë…¸ë“œì˜ elemê°’ì˜ í•© ì¶œë ¥ í•¨ìˆ˜
 		int sum = 0;
 		Node* curNode = this->head;
 		if (this->Empty() == true) {
