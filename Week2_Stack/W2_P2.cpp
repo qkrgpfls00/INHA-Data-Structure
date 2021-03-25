@@ -15,13 +15,13 @@ private:
 	Node* header;
 	Node* tailer;
 public:
-	D_LinkedList() { //»ý¼ºÀÚÇÔ¼ö
+	D_LinkedList() { //ìƒì„±ìží•¨ìˆ˜
 		header = new Node;
 		tailer = new Node;
 		header = NULL;
 		tailer = NULL;
 	}
-	int List_size() { //¸®½ºÆ®ÀÇ Å©±â ¹ÝÈ¯ ÇÔ¼ö
+	int List_size() { //ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸° ë°˜í™˜ í•¨ìˆ˜
 		int sz = 0;
 		if (this->Empty() == true) {
 			return sz;
@@ -37,11 +37,11 @@ public:
 		}
 
 	}
-	bool Empty() { //¸®½ºÆ®°¡ ºñ¾îÀÖ´ÂÁö È®ÀÎ ÇÔ¼ö
+	bool Empty() { //ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆëŠ”ì§€ í™•ì¸ í•¨ìˆ˜
 		return(header == NULL && tailer == NULL);
 	}
-	void Print() { //¸®½ºÆ® ÀüÃ¼ Ãâ·Â ÇÔ¼ö
-		//¸®½ºÆ®°¡ ºñ¾îÀÖÀ» ¶§ emptyÃâ·Â
+	void Print() { //ë¦¬ìŠ¤íŠ¸ ì „ì²´ ì¶œë ¥ í•¨ìˆ˜
+		//ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆì„ ë•Œ emptyì¶œë ¥
 
 		if (this->Empty() == true) {
 			cout << "empty\n";
@@ -55,11 +55,11 @@ public:
 			cout << curNode->elem << '\n';
 		}
 	}
-	void Append(int elem) { //¸®½ºÆ®¿¡ node¸¦ Ãß°¡ ÇÔ¼ö
-		//¸Ç µÚ¿¡ »ðÀÔ ÈÄ PrintÇÔ¼ö ¼öÇà
+	void Append(int elem) { //ë¦¬ìŠ¤íŠ¸ì— nodeë¥¼ ì¶”ê°€ í•¨ìˆ˜
+		//ë§¨ ë’¤ì— ì‚½ìž… í›„ Printí•¨ìˆ˜ ìˆ˜í–‰
 		Node* newNode = new Node;
 		newNode->elem = elem;
-		newNode->next = NULL; //tailÀÌ µÉ NodeÀÌ±â ¶§¹®
+		newNode->next = NULL; //tailì´ ë  Nodeì´ê¸° ë•Œë¬¸
 
 		if (this->Empty() == true) {
 			this->header = newNode;
@@ -73,17 +73,17 @@ public:
 			this->Print();
 		}
 	}
-	int Delete(int idx) { //ÇØ´ç idx¸¦ »èÁ¦ ÇÔ¼ö
-		//»èÁ¦ÇÏ¸é¼­ ¹ÝÈ¯, ¹ÝÈ¯µÈ °ª Ãâ·Â
+	int Delete(int idx) { //í•´ë‹¹ idxë¥¼ ì‚­ì œ í•¨ìˆ˜
+		//ì‚­ì œí•˜ë©´ì„œ ë°˜í™˜, ë°˜í™˜ëœ ê°’ ì¶œë ¥
 
-		//¸®½ºÆ®°¡ ºñ¾îÀÖ°Å³ª index°ªÀÌ »çÀÌÁî¿Í °°°Å³ª Å©¸é -1À» ¹ÝÈ¯, Ãâ·Â
+		//ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆê±°ë‚˜ indexê°’ì´ ì‚¬ì´ì¦ˆì™€ ê°™ê±°ë‚˜ í¬ë©´ -1ì„ ë°˜í™˜, ì¶œë ¥
 		int midIndex = List_size() / 2;
 		int deleteNum = 0;
 
 		if (this->Empty() == true || List_size() <= idx) {
 			deleteNum = -1;
 		}
-		else if (idx == 0) { //head¸¦ »èÁ¦ÇÏ´Â °æ¿ì
+		else if (idx == 0) { //headë¥¼ ì‚­ì œí•˜ëŠ” ê²½ìš°
 			if (List_size() == 1) {
 				deleteNum = header->elem;
 				this->header = NULL;
@@ -95,7 +95,7 @@ public:
 			}
 
 		}
-		else if(idx <midIndex) { //Çì´õ¿¡¼­ Á¢±Ù
+		else if(idx <midIndex) { //í—¤ë”ì—ì„œ ì ‘ê·¼
 			Node* preNode = this->header;
 			Node* curNode = this->header->next;
 			int cnt = 0;
@@ -129,8 +129,8 @@ public:
 		}
 		return deleteNum;
 	}
-	void Print_reverse() { //¸®½ºÆ® ¿ªÀ¸·Î Ãâ·Â ÇÔ¼ö
-		//¸®½ºÆ®°¡ ºñ¾îÀÖÀ» ¶§ emptyÃâ·Â
+	void Print_reverse() { //ë¦¬ìŠ¤íŠ¸ ì—­ìœ¼ë¡œ ì¶œë ¥ í•¨ìˆ˜
+		//ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆì„ ë•Œ emptyì¶œë ¥
 
 		if (this->Empty() == true) {
 			cout << "empty\n";
