@@ -1,4 +1,6 @@
-//1874¹ø: ½ºÅÃ¼ö¿­
+//1874ë²ˆ: ìŠ¤íƒìˆ˜ì—´
+//ì¶œë ¥ì€ ì œëŒ€ë¡œ ë˜ëŠ”ë° í‹€ë ¸ë‹¤ê³  ë‚˜ì˜¨ë‹¤ !
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,29 +8,29 @@ using namespace std;
 class arrStack {
 public:
 	int* arr;
-	int capacity = 1000; //¼ö¿ëÇÒ Å©±â
+	int capacity = 1000; //ìˆ˜ìš©í•  í¬ê¸°
 	int t; //top
 
-	arrStack() { // »ı¼ºÀÚÇÔ¼ö
-		this->arr = new int[capacity]; //µ¿ÀûÇÒ´çÀ¸·Î
+	arrStack() { // ìƒì„±ìí•¨ìˆ˜
+		this->arr = new int[capacity]; //ë™ì í• ë‹¹ìœ¼ë¡œ
 		this->t = -1;
 	}
 
-	int size() { //½ºÅÃÀÇ »çÀÌÁî
+	int size() { //ìŠ¤íƒì˜ ì‚¬ì´ì¦ˆ
 		return t + 1;
 	}
 
-	bool empty() { //½ºÅÃÀÌ ºñ¾îÀÖ´ÂÁö È®ÀÎ
+	bool empty() { //ìŠ¤íƒì´ ë¹„ì–´ìˆëŠ”ì§€ í™•ì¸
 		if (t == -1) {
 			return 1;
-		}// t°¡ -1ÀÏ ¶§ 1¹İÈ¯
+		}// tê°€ -1ì¼ ë•Œ 1ë°˜í™˜
 		else {
 			return 0;
 		}
 	}
 
-	int top() { // ½ºÅÃÀÇ top¿¡ ÀúÀåµÈ ¿ø¼Ò ¹İÈ¯
-		if (empty()) { //½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é -1 ¹İÈ¯
+	int top() { // ìŠ¤íƒì˜ topì— ì €ì¥ëœ ì›ì†Œ ë°˜í™˜
+		if (empty()) { //ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´ -1 ë°˜í™˜
 			return -1;
 		}
 		else {
@@ -38,7 +40,7 @@ public:
 
 	void push(int e) {
 		if (size() == capacity) cout << "FULL\n";
-		else this->arr[++t] = e; //½ºÅÃÀÇ topÀ» Áõ°¡½ÃÄÑÁØ ÈÄ e¸¦ ½ºÅÃ¿¡ »ğÀÔ
+		else this->arr[++t] = e; //ìŠ¤íƒì˜ topì„ ì¦ê°€ì‹œì¼œì¤€ í›„ eë¥¼ ìŠ¤íƒì— ì‚½ì…
 	}
 
 	int pop() {
@@ -46,29 +48,29 @@ public:
 			return -1;
 		}
 		else {
-			return this->arr[t--]; //½ºÅÃÀÇ top°¨¼Ò
+			return this->arr[t--]; //ìŠ¤íƒì˜ topê°ì†Œ
 		}
 	}
 };
 
 int main() {
-	string s = ""; //¿¬»êÀÚ ÀúÀå
+	string s = ""; //ì—°ì‚°ì ì €ì¥
 	bool success = true;
-	int stkMax = 0; //½ºÅÃÀÇ ÃÖ´ñ°ª
-	int maxNum = 0; //ÀÔ·Â°ªÀÇ ÃÖ´ñ°ª
-	int num = 0; //ÀÔ·Â°ª
-	arrStack arrStk; //½ºÅÃ ÀúÀå
+	int stkMax = 0; //ìŠ¤íƒì˜ ìµœëŒ“ê°’
+	int maxNum = 0; //ì…ë ¥ê°’ì˜ ìµœëŒ“ê°’
+	int num = 0; //ì…ë ¥ê°’
+	arrStack arrStk; //ìŠ¤íƒ ì €ì¥
 	cin >> stkMax;
-	int *numArr = new int[stkMax]; //¼ö¿­ ÀúÀå
+	int *numArr = new int[stkMax]; //ìˆ˜ì—´ ì €ì¥
 
-	for (int i = 0; i < stkMax; i++) { //ÀÔ·ÂÇÑ ¼ö¿­ arr¿¡ ÀúÀå
+	for (int i = 0; i < stkMax; i++) { //ì…ë ¥í•œ ìˆ˜ì—´ arrì— ì €ì¥
 		cin >> num;
 		numArr[i] = num;
 	}
 
 	for (int j = 0; j < stkMax; j++) {
 
-		if (j == 0 || numArr[j] > maxNum) { //s¿¡ +Ãß°¡
+		if (j == 0 || numArr[j] > maxNum) { //sì— +ì¶”ê°€
 			for (int k = maxNum+1; k <= numArr[j]; k++) {
 				arrStk.push(k);
 				s += "+";
@@ -76,7 +78,7 @@ int main() {
 			maxNum = numArr[j];
 		}
 
-		if (numArr[j] == arrStk.top()) { //-Ãß°¡
+		if (numArr[j] == arrStk.top()) { //-ì¶”ê°€
 			arrStk.pop();
 			s += "-";
 		}
